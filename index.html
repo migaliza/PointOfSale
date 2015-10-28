@@ -24,6 +24,13 @@ and open the template in the editor.
             }
         </style>
         <script>
+            function onLoad() {
+             document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+            function onDeviceReady() {
+            // Now safe to use device APIs
+            }
             
             //loading values to page one
             
@@ -186,7 +193,7 @@ and open the template in the editor.
 		
         </script>
     </head>
-    <body>
+    <body onload="onload()" >
         
        <!--start of page one-->
 	<div data-role="page" id="pageone">
