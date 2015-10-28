@@ -13,7 +13,7 @@ and open the template in the editor.
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery-ui.js"></script>
-        <script src="js/offline.js"></script>
+ 
 	<script src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script src="phonegap.js"></script>
         <title></title>
@@ -183,7 +183,7 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <p id="status">Online</p>
+        
        <!--start of page one-->
 	<div data-role="page" id="pageone">
             <!--header-->
@@ -201,7 +201,7 @@ and open the template in the editor.
 
             <!--content-->
             <div data-role="main" class="ui-content">
-                <table data-role="table"  class="ui-responsive table-stroke"padding="5%">
+                <table data-role="table"  class="ui-responsive table-stroke" padding="5%">
                     <thead>
                         <tr>
                             
@@ -226,12 +226,12 @@ and open the template in the editor.
 	<!--page two, view page-->
 	<div data-role="page" id="pagetwo">
             <!--header-->
-            <div data-role="header"style="overflow:hidden" data-position="inline">
+            <div data-role="header" style="overflow:hidden" data-position="inline">
 		<h1> Point Of Sale</h1>
                 <a href="#" data-icon="gear" class="ui-btn-right">Option</a>
                 <div data-role="navbar">
                   <ul>
-                      <li><a href="#pageone"class="ui-btn ui-icon-home ui-btn-icon-left" onclick="navigateHome()">Home</a></li>
+                      <li><a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left" onclick="navigateHome()">Home</a></li>
                       <li><a href="#pagetwo" class=" ui-btn ui-btn-inline  ui-corner-all ui-btn-icon-left ui-icon-grid" onclick="navigateView()">Add Items</a></li>
                       <li><a href="#pagethree" class=" ui-btn ui-btn-inline  ui-corner-all ui-btn-icon-left ui-icon-shop" onclick="navigatethree()">Sell</a></li>
                   </ul>
@@ -239,7 +239,7 @@ and open the template in the editor.
             </div>
 
             <!--content-->
-            <div role="main"class="ui-content">
+            <div role="main" class="ui-content">
              <!--  <div data-role="collapsible">-->
 		<input type="button" value ="SCAN" id="btnScan" onclick="scanBarcode()">
 		<form method="GET" action="insert.php" id="submitData">
@@ -248,9 +248,9 @@ and open the template in the editor.
                     <label for="captured">Product Name:</label>
                     <input type="text" name="product" id="product" >
                     <label for="date">Price: </label>
-                    <input type="text"name="price" id="price">
+                    <input type="text" name="price" id="price">
                     <label for="location">Image:</label>
-                    <input type="file" name="image" id="image"accept="image/*"capture>
+                    <input type="file" name="image" id="image" accept="image/*" >
                     <input type="submit" value="Submit Button"  onclick="saveToDataBase()">		
             </div>
             
@@ -261,33 +261,33 @@ and open the template in the editor.
 			
         <!--page three -->
 	<div data-role="page" id="pagethree">
-            <div data-role="header"style="overflow:hidden" data-position="inline">
+            <div data-role="header" style="overflow:hidden" data-position="inline">
 		<h1> Point Of Sale</h1>
                 <a href="#" data-icon="gear" class="ui-btn-right">Option</a>
                 <div data-role="navbar">
                   <ul>
-                      <li><a href="#pageone"class="ui-btn ui-icon-home ui-btn-icon-left" onclick="navigateHome()">Home</a></li>
+                      <li><a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left" onclick="navigateHome()">Home</a></li>
                       <li><a href="#pagetwo" class=" ui-btn ui-btn-inline  ui-corner-all ui-btn-icon-left ui-icon-grid" onclick="navigateView()">Add Items</a></li>
                       <li><a href="#pagethree" class=" ui-btn ui-btn-inline  ui-corner-all ui-btn-icon-left ui-icon-shop" onclick="navigatethree()">Sell</a></li>
                   </ul>
                 </div>
             </div>
-            <div data-role="content"id="further-details"></div>
-            <!--items to be bought--->
-            <ul data-role="listview" data-split-icon="plus" data-datatheme="a" data-split-theme="a"data-inset="true">
-                <li data-role="collapsible" data-iconpos="right"data-inset="false">
+            <div data-role="content"  id="further-details"></div>
+            
+            <ul data-role="listview" data-split-icon="plus" data-datatheme="a" data-split-theme="a" data-inset="true">
+                <li data-role="collapsible" data-iconpos="right" data-inset="false">
                     <h2>SELECT ITEMS BEING BOUGHT</h2>
-                    <ul data-role="listview" data-theme="b"id="itemsBought">
+                    <ul data-role="listview" data-theme="b" id="itemsBought">
                         
                     </ul>
                 </li>
             </ul>
             <div>
                 <label for="phoneNo"> Phone Number: </label>
-                <input type="text" data-mini="true"name="phoneNo" id="phoneNo" placeholder="+233505258170" span>
+                <input type="text" data-mini="true" name="phoneNo" id="phoneNo" placeholder="+233505258170" >
             </div>
             
-            <table data-role="table"id="" data-mode=""class="ui-responsive table-stroke">
+            <table data-role="table"  class="ui-responsive table-stroke">
                 <thead>
                     <TR>
                         <th>ITEM</th>
@@ -300,7 +300,7 @@ and open the template in the editor.
             <div id="totalAmount">
                 <button id="grossAmount" class="ui-btn">Total Amount</button>
             
-                <input type="text"name="gross" id="gross" data-mini="true">
+                <input type="text" name="gross" id="gross" data-mini="true">
                 <button id="sellItem" class="ui-btn" onclick="saveTransaction()">Sell</button>
                 
             </div>
