@@ -24,15 +24,8 @@ and open the template in the editor.
             }
         </style>
         <script>
-            //send response when url is passed
-            function sendRequest(u){
-                    var obj=$.ajax({url:u,async:false});
-                     var result=$.parseJSON(obj.responseText);
-                    return result;
-                                
-		}
-                
-                  //loading values to page one
+            
+            //loading values to page one
             
         $(document).on("pagecreate","#pageone",function(){
 		var theUrl = "request.php?cmd=2";
@@ -55,6 +48,15 @@ and open the template in the editor.
                         }
 		});
                 
+            //send response when url is passed
+            function sendRequest(u){
+                    var obj=$.ajax({url:u,async:false});
+                     var result=$.parseJSON(obj.responseText);
+                    return result;
+                                
+		}
+                
+                  
             
             function scanBarcode(){
 		cordova.plugins.barcodeScanner.scan(
@@ -158,12 +160,7 @@ and open the template in the editor.
                         });
                         }
 		});
-                
-                
-         
-		
-                        
-                        
+                     
                 /*move to the nnext page*/
 		function navigateView() {
                     if (condition) {
