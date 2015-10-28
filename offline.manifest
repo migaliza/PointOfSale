@@ -1,0 +1,18 @@
+CACHE MANIFEST
+NETWORK:
+phonegap.js
+config.xml
+CACHE:
+index.php
+request.php
+/js/offline.js
+/js/jquery.mobile-1.4.5.min.js
+
+/js/jquery-ui.js
+jquery-2.1.4.min.js
+css/jquery-ui.css
+css/jquery.mobile-1.4.5.min.css
+css/themes/jquery.mobile.icons.min.css
+css/themes/mytheme.css
+
+
