@@ -5,9 +5,9 @@
 		versionCode ="11"
 		version ="1.0.0">
 		
-		<name> Metre reading </name>
+		<name> Point of Sale </name>
 		<description>
-			An app to scan barcode and display details 
+			An app that is used at a point of sale
 		</description>
 		<author href="hVp://www.ashesi.edu.gh" email="migaliza.lyza@gmail.com">>
 			Beatrice Migaliza
