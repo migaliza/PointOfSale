@@ -31,6 +31,30 @@ and open the template in the editor.
                     return result;
                                 
 		}
+                
+                  //loading values to page one
+            
+        $(document).on("pagecreate","#pageone",function(){
+		var theUrl = "request.php?cmd=2";
+
+			var obj=sendRequest(theUrl);
+
+			if(obj.result==1){
+                            //alert(obj.result);
+
+			var row;
+			
+			$.each(obj.values,function(i,value){
+				row+='<tr><td>'+value.productName+'</td>'+
+                                        '<td>'+value.barcode+'</td>'+'<td>'+
+                                        '<td>'+value.price+'</td>'+'<td><a href="" data-theme="a" data-rel="popup"\n\
+                            data-position-to="window" data-transition="pop"></a>+</td></tr>'
+			});
+
+			$("tbody").append(row);
+                        }
+		});
+                
             
             function scanBarcode(){
 		cordova.plugins.barcodeScanner.scan(
@@ -45,13 +69,14 @@ and open the template in the editor.
             
             //save all transaction
             function saveTransaction(){
-                $("#submitTransaction").submit(function(ev){
-                    ev.preventDefault();
+                $("#submitTransaction").click(function(ev){
+                  ev.preventDefault();
                 var phoneNo=$("#phoneNo").val();
                 var grosspay=$("#gross").val();
                 var transaction="gross="+grosspay+"&phoneNo="+phoneNo;
                 var theUrl="http://cs.ashesi.edu.gh/~csashesi/class2016/beatrice-lungahu/MobileWeb/AppPointofSale/request.php?cmd=4&"+transaction;
                 var obj3 = sendRequest(theUrl);
+           
                 if(obj3.result==1){
                     
                     $('#messageTransaction').text(obj3.message);
@@ -66,6 +91,7 @@ and open the template in the editor.
             }
             function saveToDataBase(){
                 $("#submitData").submit(function(ev){
+                 
                     ev.preventDefault();
                     var barcode = $("#barcode").val();
                     var product = $("#product").val();
@@ -134,30 +160,7 @@ and open the template in the editor.
 		});
                 
                 
-           //loading values to page one
-            
-        $(document).on("pagecreate","#pageone",function(){
-		//alert("ready");
-		var theUrl = "request.php?cmd=2";
-
-			var obj=sendRequest(theUrl);
-
-			if(obj.result==1){
-                            //alert(obj.result);
-
-			var row;
-			
-			$.each(obj.values,function(i,value){
-				row+='<tr><td>'+value.productName+'</td>'+
-                                        '<td>'+value.barcode+'</td>'+'<td>'+
-                                        '<td>'+value.price+'</td>'+'<td><a href="" data-theme="a" data-rel="popup"\n\
-                            data-position-to="window" data-transition="pop"></a>+</td></tr>'
-			});
-
-			$("tbody").append(row);
-                        }
-		});
-                
+         
 		
                         
                         
@@ -287,12 +290,12 @@ and open the template in the editor.
                 </li>
             </ul>
             <div>
-                <form method="GET" id="submitTransaction">
+                
                     <label for="phoneNo"> Phone Number: </label>
                     <input type="text" data-mini="true" name="phoneNo" id="phoneNo" placeholder="+233505258170" >
                     <button id="grossAmount" class="ui-btn">Total Amount</button>
                     <input type="text" name="gross" id="gross" data-mini="true">
-                    <input type="submit" value="SELL"  onclick="saveTransaction()">
+                    <input type="submit" value="SELL" id="submitTransaction" onclick="saveTransaction()">
     
             </div>
             
