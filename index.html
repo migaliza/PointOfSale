@@ -45,7 +45,7 @@ and open the template in the editor.
             
             //save all transaction
             function saveTransaction(){
-                $("#sellItem").click(function(ev){
+                $("#submitTransaction").submit(function(ev){
                     ev.preventDefault();
                 var phoneNo=$("#phoneNo").val();
                 var grosspay=$("#gross").val();
@@ -165,18 +165,22 @@ and open the template in the editor.
 		function navigateView() {
                     if (condition) {
 			$.mobile.changePage("#pagetwo");
+                        
                     }
 		}
 
 		/*move to the nnext page*/
 		function navigateHome() {
+                    location.reload();
                     if (condition) {
 			$.mobile.changePage("#pageone");
                     }
 		}
                 function navigatethree() {
+                    location.reload();
                     if (condition) {
 			$.mobile.changePage("#pagethree");
+                        
                     }
 		}
 		
@@ -201,7 +205,7 @@ and open the template in the editor.
 
             <!--content-->
             <div data-role="main" class="ui-content">
-                <table data-role="table"  class="ui-responsive table-stroke" padding="5%">
+                <table data-role="table"  class="ui-responsive table-stroke" >
                     <thead>
                         <tr>
                             
@@ -242,7 +246,7 @@ and open the template in the editor.
             <div role="main" class="ui-content">
              <!--  <div data-role="collapsible">-->
 		<input type="button" value ="SCAN" id="btnScan" onclick="scanBarcode()">
-		<form method="GET" action="insert.php" id="submitData">
+		<form method="GET"  id="submitData">
                     <label for="Reading">Barcode:</label>
                     <input type="text" name="barcode" id="barcode">
                     <label for="captured">Product Name:</label>
@@ -283,8 +287,13 @@ and open the template in the editor.
                 </li>
             </ul>
             <div>
-                <label for="phoneNo"> Phone Number: </label>
-                <input type="text" data-mini="true" name="phoneNo" id="phoneNo" placeholder="+233505258170" >
+                <form method="GET" id="submitTransaction">
+                    <label for="phoneNo"> Phone Number: </label>
+                    <input type="text" data-mini="true" name="phoneNo" id="phoneNo" placeholder="+233505258170" >
+                    <button id="grossAmount" class="ui-btn">Total Amount</button>
+                    <input type="text" name="gross" id="gross" data-mini="true">
+                    <input type="submit" value="SELL"  onclick="saveTransaction()">
+    
             </div>
             
             <table data-role="table"  class="ui-responsive table-stroke">
@@ -298,10 +307,9 @@ and open the template in the editor.
                 </tbody>
             </table>
             <div id="totalAmount">
-                <button id="grossAmount" class="ui-btn">Total Amount</button>
+                
             
-                <input type="text" name="gross" id="gross" data-mini="true">
-                <button id="sellItem" class="ui-btn" onclick="saveTransaction()">Sell</button>
+                
                 
             </div>
 			<!--footer-->
